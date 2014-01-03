@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ps -ef | grep akka | grep Bootstrapper | grep qas | awk {'print $2'} | xargs kill -7
+sleep 5
+cd /opt/akka-2.2.3-uns-qas
+screen -d -m bin/akka com.wcs.uns.Bootstrapper
+echo 'uns-qas started in the background. logs can be found under logs/.'
